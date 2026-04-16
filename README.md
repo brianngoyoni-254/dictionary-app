@@ -1,4 +1,3 @@
----
 
 # Brian's Dictionary App
 
@@ -6,24 +5,18 @@ A modern, interactive dictionary web application built using **HTML, CSS, and Ja
 
 ---
 
-## Live Demo
-
-*(https://brianngoyoni-254.github.io/dictionary-app//)*
-
----
-
 ## Features
 
-*  Real-time word search
+* Real-time word search
 * Definitions with examples
 * Pronunciation audio playback
 * Synonyms & antonyms support
-*  Add/remove favorite words
-*  Search history tracking
+* Add/remove favorite words
+* Search history tracking
 * Voice input (speech-to-text support)
 * Dark/Light theme toggle
 * Fully responsive design
-* ata saved using LocalStorage
+* Data saved using LocalStorage
 
 ---
 
@@ -31,7 +24,7 @@ A modern, interactive dictionary web application built using **HTML, CSS, and Ja
 
 * HTML5
 * CSS (Flexbox + Responsive Design)
-* JavaScript 
+* JavaScript (ES6+)
 * Dictionary API
 * Web Speech API (Voice Input)
 * LocalStorage API
@@ -41,31 +34,34 @@ A modern, interactive dictionary web application built using **HTML, CSS, and Ja
 ## Project Structure
 
 ```
+
 dictionary-app/
 │
 ├── index.html       # Main HTML file
 ├── style.css        # Styling (UI/UX design)
 ├── main.js          # JavaScript logic
 └── README.md        # Project documentation
-```
+
+````
 
 ---
 
 ## How It Works
 
-1. User types a word or uses voice input 
-2. App fetches data from Dictionary API 
+1. User types a word or uses voice input
+2. App fetches data from Dictionary API
 3. Displays:
 
    * Word meaning
    * Phonetics
    * Pronunciation audio
    * Synonyms & antonyms
+
 4. User can:
 
-   * Save favorites 
-   * View search history 
-   * Toggle dark/light mode 
+   * Save favorites
+   * View search history
+   * Toggle dark/light mode
 
 ---
 
@@ -85,7 +81,7 @@ dictionary-app/
 
 ---
 
-##  What I Learned
+## What I Learned
 
 * Working with REST APIs
 * Handling asynchronous JavaScript (async/await)
@@ -100,28 +96,24 @@ dictionary-app/
 
 ```bash
 # Clone this repository
-git clone https://github.com/brianngoyoni-254/dictionary-app.git
+git clone https://github.com/your-username/dictionary-app.git
 
 # Open project folder
 cd dictionary-app
 
 # Open index.html in browser
-```
+````
 
 ---
 
-##  Acknowledgements
+## Acknowledgements
 
 * Dictionary API: [https://dictionaryapi.dev/](https://dictionaryapi.dev/)
 * Inspired by modern dictionary apps like Google Dictionary
 
 ---
 
-# Author
+## Author
 
 **Brian Ngoyoni**
-Software Developer 
-
----
-
-
+Software Developer

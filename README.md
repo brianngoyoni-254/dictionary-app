@@ -8,7 +8,7 @@ A modern, interactive dictionary web application built using **HTML, CSS, and Ja
 
 ## Live Demo
 
-*(https://brianngoyoni-254.github.io/dictionary-web-app/)*
+*(https://brianngoyoni-254.github.io/dictionary-app//)*
 
 ---
 

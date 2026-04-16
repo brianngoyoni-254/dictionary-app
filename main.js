@@ -170,27 +170,41 @@ const SpeechRecognition =
 const recognition = SpeechRecognition ? new SpeechRecognition() : null;
 
 if (recognition) {
+  recognition.continuous = false;
+  recognition.interimResults = false;
+
   recognition.onresult = (e) => {
     input.value = e.results[0][0].transcript;
-    input.focus(); 
     fetchWord();
+
+    setTimeout(() => {
+      input.focus(); 
+    }, 100);
   };
 
   recognition.onend = () => {
-    input.focus(); 
+    setTimeout(() => {
+      input.focus();
+    }, 100);
   };
 }
 
-/* VOICE BUTTON */
-voiceBtn.onclick = () => {
+voiceBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
   if (!recognition) return alert("Not supported");
 
   try {
     recognition.start();
   } catch (err) {
-    console.log("Mic already running or blocked");
+    console.log("Mic already running");
   }
-};
+
+  setTimeout(() => {
+    input.focus(); 
+  }, 150);
+});
+
 
 /* INIT */
 renderFavs();

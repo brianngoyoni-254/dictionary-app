@@ -186,13 +186,6 @@ voiceBtn.onclick = () => {
   recognition.start();
 };
 
-voiceBtn.addEventListener("touchstart", (e) => {
-  if (!recognition) return;
-
-  e.preventDefault(); // stops input focus interference on mobile
-  recognition.start();
-});
-
 /* INIT */
 renderFavs();
 renderHistory();

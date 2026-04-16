@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brian Dictionary</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <h1>BRIAN'S DICTIONARY</h1>
+</header>
+
+<div class="container">
+
+  <!-- SEARCH -->
+  <div class="search-form">
+
+    <div class="input-wrapper">
+      <input type="text" placeholder="Type any word" />
+      <button class="voice-btn" title="Speak now">🎤</button>
+    </div>
+
+    <button class="search-btn">Search</button>
+    <button class="toggle-fav">⭐ Favs</button>
+    <button class="toggle-history">🕘 History</button>
+    <button class="toggle-theme">🌓 Theme</button>
+
+  </div>
+
+  <!-- RESULT -->
+  <div class="dictionary-app"></div>
+
+  <!-- HISTORY -->
+  <div class="history hidden">
+    <h2>🕘 Search History</h2>
+    <ul class="history-list"></ul>
+    <button class="clear-history-btn">Clear History</button>
+  </div>
+
+  <!-- FAVORITES -->
+  <div class="favorites hidden">
+    <h2>⭐ Favourite Words</h2>
+    <ul class="fav-list"></ul>
+    <button class="clear-btn">Clear All</button>
+  </div>
+
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

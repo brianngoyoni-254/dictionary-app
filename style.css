@@ -1,0 +1,235 @@
+/* GLOBAL RESET */
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* BODY */
+body{
+display: flex;
+flex-direction: column;
+align-items: center;
+min-height: 100vh;
+background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+gap: 2.2rem;
+padding: 2.5rem 0;
+transition: 0.3s ease;
+}
+
+/* LIGHT MODE */
+body.light-mode{
+background: #f5f7fb;
+}
+
+/* HEADER */
+header h1{
+color: white;
+letter-spacing: 2px;
+text-shadow: 0 3px 15px rgba(0,0,0,0.4);
+}
+
+body.light-mode header h1{
+color: #1c1f2a;
+text-shadow: none;
+}
+
+/* CONTAINER */
+.container{
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 1.8rem;
+width: 100%;
+}
+
+/* SEARCH FORM */
+.search-form{
+display: flex;
+align-items: center;
+width: 32vw;
+min-width: 280px;
+background: #243b55;
+border-radius: 14px;
+padding: 0.5rem;
+gap: 0.5rem;
+flex-wrap: wrap;
+box-shadow:
+3px 3px red,
+-1em 0 0.4em olive;
+}
+
+/* INPUT WRAPPER */
+.input-wrapper{
+position: relative;
+flex: 1;
+display: flex;
+}
+
+/* INPUT */
+.input-wrapper input{
+width: 100%;
+padding: 0.8rem 2.2rem 0.8rem 1rem;
+border: none;
+outline: none;
+background: transparent;
+color: white;
+}
+
+/* MIC BUTTON */
+.voice-btn{
+position: absolute;
+right: 8px;
+top: 50%;
+transform: translateY(-50%);
+background: transparent;
+border: none;
+cursor: pointer;
+color: white;
+}
+
+/* TOOLTIP */
+.voice-btn:hover::after{
+content: "Speak now";
+position: absolute;
+top: -28px;
+right: 0;
+background: black;
+color: white;
+font-size: 0.7rem;
+padding: 4px 6px;
+border-radius: 5px;
+white-space: nowrap;
+}
+
+/* BUTTONS */
+.search-form button{
+border: none;
+cursor: pointer;
+padding: 0.6rem 1rem;
+background: transparent;
+color: white;
+transition: 0.3s ease;
+border-radius: 6px;
+}
+
+/* HOVER */
+.search-form button:hover{
+background: #00c6ff;
+color: white;
+}
+
+/* CARD */
+.card{
+width: 32vw;
+min-width: 280px;
+background: #243b55;
+padding: 1.5rem;
+border-radius: 14px;
+color: white;
+box-shadow:
+3px 3px red,
+-1em 0 0.4em olive;
+}
+
+/* PROPERTY */
+.property{
+margin: .6rem 0;
+border-bottom: 1px solid rgba(255,255,255,0.1);
+padding-bottom: 0.4rem;
+}
+
+/* FAVORITES + HISTORY */
+.favorites,
+.history{
+width: 26vw;
+min-width: 240px;
+background: #1c1f2a;
+padding: 1rem;
+border-radius: 14px;
+color: white;
+box-shadow:
+3px 3px red,
+-1em 0 0.4em olive;
+}
+
+/* HIDDEN */
+.hidden{
+display: none;
+}
+
+/* LIST ITEMS */
+.fav-list li,
+.history-list li{
+padding: .6rem;
+margin: .3rem 0;
+background: rgba(255,255,255,0.05);
+border-radius: 8px;
+cursor: pointer;
+transition: 0.2s;
+}
+
+.fav-list li:hover,
+.history-list li:hover{
+background: rgba(255,255,255,0.12);
+}
+
+/* BUTTONS */
+.clear-btn,
+.clear-history-btn{
+width: 100%;
+margin-top: 1rem;
+padding: .7rem;
+border: none;
+color: white;
+cursor: pointer;
+border-radius: 8px;
+transition: 0.3s;
+}
+
+.clear-btn{ background: red; }
+.clear-history-btn{ background: orange; }
+
+.clear-btn:hover,
+.clear-history-btn:hover{
+transform: translateY(-2px);
+}
+
+/* NOT FOUND */
+.not-found{
+color: red;
+font-weight: bold;
+}
+
+/* LOADING */
+.loading{
+color: white;
+}
+
+/* RESPONSIVENESS */
+
+@media screen and (max-width: 768px){
+
+.search-form{
+width: 100%;
+}
+
+.card,
+.favorites,
+.history{
+width: 100%;
+}
+
+.search-form button{
+flex: 1;
+min-width: 45%;
+}
+}
+
+@media screen and (max-width: 480px){
+
+.search-form button{
+min-width: 100%;
+}
+}

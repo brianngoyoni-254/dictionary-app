@@ -207,6 +207,10 @@ font-weight: bold;
 color: white;
 }
 
+.voice-btn {
+  touch-action: manipulation;
+}
+
 /* RESPONSIVENESS */
 
 @media screen and (max-width: 768px){

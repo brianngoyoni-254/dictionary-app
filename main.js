@@ -164,7 +164,6 @@ clearHistoryBtn.onclick = () => {
   renderHistory();
 };
 
-/* VOICE */
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
 
@@ -173,17 +172,24 @@ const recognition = SpeechRecognition ? new SpeechRecognition() : null;
 if (recognition) {
   recognition.onresult = (e) => {
     input.value = e.results[0][0].transcript;
+    input.focus(); 
     fetchWord();
+  };
+
+  recognition.onend = () => {
+    input.focus(); 
   };
 }
 
-// mobile optimization
-const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
+/* VOICE BUTTON */
 voiceBtn.onclick = () => {
   if (!recognition) return alert("Not supported");
-  if (isMobile) return; // prevents double trigger on mobile click
-  recognition.start();
+
+  try {
+    recognition.start();
+  } catch (err) {
+    console.log("Mic already running or blocked");
+  }
 };
 
 /* INIT */

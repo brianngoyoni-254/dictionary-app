@@ -103,11 +103,9 @@ async function fetchWord() {
 
     dictionary.innerHTML = `
       <div class="card">
-
         <div class="fav-icon">❤️ Add Favourite</div>
 
         <div class="property"><b>Word:</b> ${data.word}</div>
-
         <div class="property"><b>Phonetic:</b> ${data.phonetic || "N/A"}</div>
 
         ${audio ? `<audio controls src="${audio}"></audio>` : ""}
@@ -115,9 +113,7 @@ async function fetchWord() {
         <div class="property"><b>Definition:</b> ${data.meanings[0].definitions[0].definition}</div>
 
         <div class="property"><b>Synonyms:</b> ${synonyms.join(", ") || "None"}</div>
-
         <div class="property"><b>Antonyms:</b> ${antonyms.join(", ") || "None"}</div>
-
       </div>
     `;
 
@@ -126,14 +122,13 @@ async function fetchWord() {
   }
 }
 
+/* FAVORITE CLICK */
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("fav-icon")) {
-
     if (!favourites.includes(currentWord)) {
       favourites.push(currentWord);
       saveFavs();
       renderFavs();
-
       alert("❤️ Added to favourites successfully!");
     }
   }
@@ -146,10 +141,47 @@ input.addEventListener("keypress", e => {
   if (e.key === "Enter") fetchWord();
 });
 
-/* TOGGLES */
-toggleFavBtn.onclick = () => favBox.classList.toggle("hidden");
-historyBtn.onclick = () => historyBox.classList.toggle("hidden");
-themeBtn.onclick = () => document.body.classList.toggle("light-mode");
+
+
+function safeToggle(el) {
+  if (!el) return;
+
+  // force repaint safety
+  if (el.classList.contains("hidden")) {
+    el.classList.remove("hidden");
+  } else {
+    el.classList.add("hidden");
+  }
+}
+
+/* bind safely after DOM loads */
+window.addEventListener("DOMContentLoaded", () => {
+
+  const favBoxFix = document.querySelector(".favorites");
+  const historyBoxFix = document.querySelector(".history");
+  const toggleFavBtnFix = document.querySelector(".toggle-fav");
+  const historyBtnFix = document.querySelector(".toggle-history");
+  const themeBtnFix = document.querySelector(".toggle-theme");
+
+  if (toggleFavBtnFix && favBoxFix) {
+    toggleFavBtnFix.addEventListener("click", () => {
+      safeToggle(favBoxFix);
+    });
+  }
+
+  if (historyBtnFix && historyBoxFix) {
+    historyBtnFix.addEventListener("click", () => {
+      safeToggle(historyBoxFix);
+    });
+  }
+
+  if (themeBtnFix) {
+    themeBtnFix.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+    });
+  }
+
+});
 
 /* CLEAR */
 clearBtn.onclick = () => {
@@ -163,7 +195,8 @@ clearHistoryBtn.onclick = () => {
   saveHistory();
   renderHistory();
 };
-// voice mic
+
+/* VOICE */
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
 
@@ -176,21 +209,12 @@ if (recognition) {
   recognition.onresult = (e) => {
     input.value = e.results[0][0].transcript;
     fetchWord();
-
-    setTimeout(() => {
-      input.focus(); 
-    }, 100);
-  };
-
-  recognition.onend = () => {
-    setTimeout(() => {
-      input.focus();
-    }, 100);
   };
 }
 
 voiceBtn.addEventListener("click", (e) => {
   e.preventDefault();
+  e.stopPropagation();
 
   if (!recognition) return alert("Not supported");
 
@@ -199,13 +223,8 @@ voiceBtn.addEventListener("click", (e) => {
   } catch (err) {
     console.log("Mic already running");
   }
-
-  setTimeout(() => {
-    input.focus(); 
-  }, 150);
 });
 
-
-//init
+/* INIT */
 renderFavs();
 renderHistory();

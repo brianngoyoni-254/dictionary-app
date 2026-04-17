@@ -4,6 +4,7 @@ margin: 0;
 padding: 0;
 box-sizing: border-box;
 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+-webkit-tap-highlight-color: transparent;
 }
 
 /* BODY */
@@ -25,13 +26,20 @@ background: #f5f7fb;
 
 /* HEADER */
 header h1{
-color: white;
-letter-spacing: 2px;
-text-shadow: 0 3px 15px rgba(0,0,0,0.4);
+font-size: 2rem;
+font-weight: 800;
+text-align: center;
+letter-spacing: 3px;
+text-transform: uppercase;
+
+background: linear-gradient(90deg, #38bdf8, #a78bfa, #38bdf8);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+text-shadow: 0 10px 30px rgba(0,0,0,0.25);
 }
 
 body.light-mode header h1{
-color: #1c1f2a;
 text-shadow: none;
 }
 
@@ -55,9 +63,8 @@ border-radius: 14px;
 padding: 0.5rem;
 gap: 0.5rem;
 flex-wrap: wrap;
-box-shadow:
-3px 3px red,
--1em 0 0.4em olive;
+
+box-shadow: 0 12px 30px rgba(0,0,0,0.35);
 }
 
 /* INPUT WRAPPER */
@@ -83,24 +90,27 @@ position: absolute;
 right: 8px;
 top: 50%;
 transform: translateY(-50%);
+
 background: transparent;
 border: none;
 cursor: pointer;
 color: white;
+
+width: 36px;
+height: 36px;
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+border-radius: 10px;
+transition: 0.2s ease;
 }
 
-/* TOOLTIP */
-.voice-btn:hover::after{
-content: "Speak now";
-position: absolute;
-top: -28px;
-right: 0;
-background: black;
-color: white;
-font-size: 0.7rem;
-padding: 4px 6px;
-border-radius: 5px;
-white-space: nowrap;
+/* MIC HOVER */
+.voice-btn:hover{
+background: #38bdf8;
+color: #0f172a;
 }
 
 /* BUTTONS */
@@ -114,9 +124,9 @@ transition: 0.3s ease;
 border-radius: 6px;
 }
 
-/* HOVER */
+/* BUTTON HOVER */
 .search-form button:hover{
-background: #00c6ff;
+background: #38bdf8;
 color: white;
 }
 
@@ -128,9 +138,7 @@ background: #243b55;
 padding: 1.5rem;
 border-radius: 14px;
 color: white;
-box-shadow:
-3px 3px red,
--1em 0 0.4em olive;
+box-shadow: 0 12px 30px rgba(0,0,0,0.35);
 }
 
 /* PROPERTY */
@@ -149,14 +157,16 @@ background: #1c1f2a;
 padding: 1rem;
 border-radius: 14px;
 color: white;
-box-shadow:
-3px 3px red,
--1em 0 0.4em olive;
+box-shadow: 0 12px 30px rgba(0,0,0,0.35);
 }
 
-/* HIDDEN */
 .hidden{
-display: none;
+display: none !important;
+}
+
+.favorites.hidden,
+.history.hidden{
+display: none !important;
 }
 
 /* LIST ITEMS */
@@ -208,32 +218,82 @@ color: white;
 }
 
 .voice-btn {
-  touch-action: manipulation;
+touch-action: manipulation;
 }
 
-/* RESPONSIVENESS */
 
 @media screen and (max-width: 768px){
 
 .search-form{
-width: 100%;
+  width: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.8rem;
+}
+
+.input-wrapper{
+  width: 100%;
+}
+
+/* buttons full width */
+.search-form button{
+  width: 100%;
 }
 
 .card,
 .favorites,
 .history{
-width: 100%;
-}
-
-.search-form button{
-flex: 1;
-min-width: 45%;
+  width: 100%;
 }
 }
 
+
+@media screen and (max-width: 768px){
+
+.input-wrapper{
+  gap: 0.5rem;
+}
+
+
+.voice-btn{
+  position: static;
+  transform: none;
+
+  width: 42px;
+  height: 42px;
+
+  background: rgba(255,255,255,0.08);
+}
+
+/* better touch feedback */
+.voice-btn:hover{
+  background: #38bdf8;
+  color: #0f172a;
+}
+}
+
+/* SMALL PHONES */
 @media screen and (max-width: 480px){
 
+body{
+  padding: 1.2rem 0.8rem;
+  gap: 1.2rem;
+}
+
+header h1{
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+}
+
+.input-wrapper input{
+  font-size: 0.95rem;
+}
+
 .search-form button{
-min-width: 100%;
+  font-size: 0.95rem;
+}
+
+.card{
+  font-size: 0.95rem;
 }
 }

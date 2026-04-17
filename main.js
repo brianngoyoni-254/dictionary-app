@@ -163,7 +163,7 @@ clearHistoryBtn.onclick = () => {
   saveHistory();
   renderHistory();
 };
-
+// voice mic
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
 
@@ -206,6 +206,6 @@ voiceBtn.addEventListener("click", (e) => {
 });
 
 
-/* INIT */
+//init
 renderFavs();
 renderHistory();

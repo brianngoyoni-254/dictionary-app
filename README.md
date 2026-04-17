@@ -96,7 +96,7 @@ dictionary-app/
 
 ```bash
 # Clone this repository
-git clone https://github.com/your-username/dictionary-app.git
+git clone https://brianngoyoni-254/dictionary-app.git
 
 # Open project folder
 cd dictionary-app
